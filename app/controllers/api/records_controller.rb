@@ -1,4 +1,4 @@
-class RecordsController < ApplicationController
+class Api::RecordsController < ApplicationController
   before_action :set_record, only: [:show, :update, :destroy]
 
   # GET /records
@@ -21,7 +21,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
 
     if @record.save
-      render json: @record, status: :created, location: @record
+      render json: @record, status: :created
     else
       render json: @record.errors, status: :unprocessable_entity
     end
