@@ -3,8 +3,8 @@ class SessionsController < Devise::SessionsController
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
     data = {
-      token:      self.resource.authentication_token,
-      user_email: self.resource.email
+      token: self.resource.authentication_token,
+      email: self.resource.email
     }
     render json: data, status: 201
   end

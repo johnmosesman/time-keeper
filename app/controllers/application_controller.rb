@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
+  include ActionController::MimeResponds
+  # include ActionController::ImplicitRender
+  # include AbstractController::Callbacks
+  # include ActionController::RequestForgeryProtection
 
   before_filter :authenticate_user_from_token!
 
