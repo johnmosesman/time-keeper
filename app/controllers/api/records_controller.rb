@@ -54,6 +54,6 @@ class Api::RecordsController < ApplicationController
     end
 
     def record_params
-      params[:record]
+      params.require(:record).permit(:amount, :category_id)
     end
 end
