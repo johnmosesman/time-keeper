@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :records, except: [:new, :edit]
     resources :categories, except: [:new, :edit]
+
+    get 'charts', to: 'charts#index'
   end
 end

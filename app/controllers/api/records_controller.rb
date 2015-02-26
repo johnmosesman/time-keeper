@@ -1,4 +1,4 @@
-class Api::RecordsController < ApplicationController
+class Api::RecordsController < Api::BaseController
   before_action :set_record, only: [:show, :update, :destroy]
 
   # GET /records
