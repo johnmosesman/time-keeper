@@ -1,3 +1,9 @@
+# Time-keeper
+
+This is an app I'm building on occasionally to track the amount of time spent each day for various categories (sleeping, reading, working out, etc.). I'm using it as a way to learn more about Ember, Rails, Ember Simple Auth, and Chartjs.
+
+This is the Rails portion of this app, the Ember side [is here.](https://github.com/johnmosesman/time-keeper-ember)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
