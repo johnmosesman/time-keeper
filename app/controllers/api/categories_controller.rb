@@ -4,7 +4,7 @@ class Api::CategoriesController < Api::BaseController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = current_user.categories
 
     render json: @categories
   end

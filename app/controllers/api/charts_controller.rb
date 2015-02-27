@@ -1,6 +1,6 @@
 class Api::ChartsController < Api::BaseController
   def index
-    @charts = Category.all.collect { |category| Chart.new(category) }
+    @charts = current_user.categories.collect { |category| Chart.new(category) }
 
     render json: @charts
   end
