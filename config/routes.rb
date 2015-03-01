@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories, except: [:new, :edit]
-
   devise_for :users, controllers: { sessions: 'sessions' }
 
   post 'create_user', to: 'registrations#create'
