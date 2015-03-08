@@ -7,7 +7,7 @@ gem 'devise', '~> 3.4.1'
 gem 'active_model_serializers', '~> 0.8.3'
 
 group :development do
-  gem 'spring'
+  gem 'spring', '~> 1.3.3'
 end
 
 group :production do
