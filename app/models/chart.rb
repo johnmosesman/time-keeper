@@ -1,22 +1,23 @@
 class Chart
-  attr_accessor :data, :title, :average, :success_percentage
+  attr_accessor :data, :title, :average, :success_percentage, :options
 
   def initialize(category)
     self.title = category.title
     self.data = get_data(category)
     self.average = get_average(category)
     self.success_percentage = get_success_percentage(category)
+    self.options = get_options
   end
 
   private
     def get_data(category)
       records = category.records_for_last_week.order(:created_at)
 
-      self.data = {
+      {
         labels: records.collect { |record| record.created_at.strftime("%a %e") },
         datasets: [
           {
-            label: "My First dataset",
+            label: "Actual Amount",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
@@ -26,8 +27,8 @@ class Chart
             data: records.collect { |record| record.amount.round(1) }
           },
           {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
+            label: "Goal Amount",
+            fillColor: "rgba(220,220,220,0)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
@@ -48,5 +49,11 @@ class Chart
       records = category.records_for_last_week
       percentage = records.select { |record| record.amount >= category.amount }.count / records.count.to_f
       (percentage*100).to_s + "%"
+    end
+
+    def get_options
+      {
+        scaleShowGridLines: false
+    }
     end
 end
