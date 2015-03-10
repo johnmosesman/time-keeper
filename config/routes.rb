@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   post 'create_user', to: 'registrations#create'
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :records, except: [:new, :edit]
     resources :categories, except: [:new, :edit]
 

@@ -56,7 +56,7 @@ class Chart
       percentage = records.select { |record| record.amount >= category.amount }.count / records.count.to_f
 
       {
-        data: (percentage*100),
+        data: sprintf('%.0f', percentage*100),
         level: level_for_goal((percentage*100), 100)
       }
     end
